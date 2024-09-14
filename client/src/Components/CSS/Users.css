@@ -1,0 +1,64 @@
+.table-form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+
+
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+}
+
+.form-table th,
+.form-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+
+}
+
+.form-table th {
+    background-color: #f2f2f2;
+}
+
+.add-btn,
+.del-btn,
+.submit-btn {
+    background-color: #4433df;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25%;
+    margin-top: 20px;
+
+
+
+}
+
+.add-btn:hover,
+.del-btn:hover,
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .table-form-container {
+        padding: 15px;
+    }
+
+    .form-table th,
+    .form-table td {
+        padding: 6px;
+    }
+
+    .add-btn,
+    .submit-btn {
+        padding: 8px 10px;
+    }
+}
