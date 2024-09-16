@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './CSS/Users.css'
 
 const Users = () => {
     //use state..
-    const [users, setUsers] = useState([{
-        Name: "Aashish",
-        Email: "ashish@gmail.com",
-        Age: 24
-
-    }])
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        axios.get('http://localhost:3000')
+            .then(result => setUsers(result.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div className="table-form-container">
@@ -20,6 +21,7 @@ const Users = () => {
                         <th>Name</th>
                         <th>Age</th>
                         <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,9 +31,11 @@ const Users = () => {
                         users.map((user) => {
                             return (
                                 <tr>
-                                    <td>{user.Name}</td>
-                                    <td>{user.Age}</td>
-                                    <td>{user.Email}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.age}</td>
+                                    <td>{user.email}</td>
+                                    <td> <Link to='/update'> <button type="submit" className="submit-btn">Update</button></Link>
+                                        <Link to='' > <button className="del-btn">Delete</button></Link></td>
                                 </tr>
                             )
                         })
@@ -39,9 +43,9 @@ const Users = () => {
                 </tbody>
             </table>
 
-            <Link to='/create' >  <button type="button" className="add-btn">Add</button></Link>
-            <Link to='/create' >  <button type="button" className="del-btn">Delete</button></Link>
-            <Link to='/update'> <button type="submit" className="submit-btn">Update</button></Link>
+            <Link to='/create' > <button type="button" className="add-btn">AddUser</button></Link>
+
+
         </div>
     );
 }

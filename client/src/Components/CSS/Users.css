@@ -1,8 +1,7 @@
 .table-form-container h2 {
     margin-bottom: 20px;
     text-align: center;
-
-
+    color: navy
 }
 
 .form-table {
@@ -24,26 +23,37 @@
     background-color: #f2f2f2;
 }
 
-.add-btn,
+.add-btn {
+    background-color: #2c3dd4;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 20%;
+    margin-top: 5px;
+    width: 150px;
+    text-align: center;
+}
+
 .del-btn,
 .submit-btn {
     background-color: #4433df;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 25%;
-    margin-top: 20px;
-
-
-
+    width: 20%;
+    margin-top: 10px;
+    width: 80px;
+    font-size: 13px;
 }
 
 .add-btn:hover,
 .del-btn:hover,
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #8dd6a6;
 }
 
 /* Responsive design */
