@@ -3,11 +3,14 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './CSS/CreateUser.css'
 const CreateUser = () => {
+
+    // hooks 
     const [name, setName] = useState()
     const [age, setAge] = useState()
     const [email, setEmail] = useState()
+    //Navigations for pages...
     const navigate = useNavigate()
-
+// handling
     const Submit = (e) => {
         e.preventDefault();
         axios.post("http://localhost:3000/createUser", { name, age, email })
