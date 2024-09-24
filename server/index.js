@@ -40,7 +40,7 @@ app.put('/updateUser/:id', (req, res) => {
 app.delete('/deleteUser/:id', (req, res) => {
     const id = req.params.id;
     UserModel.findByIdAndDelete({ _id: id })
-        .then(res => res.json(res))
+        .then(users => res.json(users))
         .catch(err => res.json(err))
 })
 
