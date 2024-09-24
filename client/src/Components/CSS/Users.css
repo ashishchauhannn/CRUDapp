@@ -27,7 +27,7 @@
     background-color: #2c3dd4;
     color: white;
     padding: 8px 10px;
-    border: none;
+    border: navy 1px solid;
     border-radius: 15px;
     cursor: pointer;
     width: 20%;
@@ -40,12 +40,13 @@
 .submit-btn {
     background-color: #4433df;
     color: white;
-    padding: 10px 15px;
-    border: none;
+    padding: 10px 20px;
+    border: navy 1px solid;
     border-radius: 5px;
     cursor: pointer;
     width: 20%;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
     width: 80px;
     font-size: 13px;
 }

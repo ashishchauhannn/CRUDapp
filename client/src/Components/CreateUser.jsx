@@ -1,7 +1,8 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './CSS/CreateUser.css'
+import axios from 'axios';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import './CSS/CreateUser.css';
 const CreateUser = () => {
 
     // hooks 
@@ -10,12 +11,13 @@ const CreateUser = () => {
     const [email, setEmail] = useState()
     //Navigations for pages...
     const navigate = useNavigate()
-// handling
+    // handling
     const Submit = (e) => {
         e.preventDefault();
         axios.post("http://localhost:3000/createUser", { name, age, email })
             .then(result => {
                 console.log(result)
+                toast('User Created Successfully!');
                 navigate('/')
             })
             .catch(err => console.log(err))
