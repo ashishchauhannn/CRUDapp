@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { BASE_URL } from '../main';
 import './CSS/UpdateUsers.css';
 const UpdateUsers = () => {
 
@@ -14,7 +16,7 @@ const UpdateUsers = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:3000/getUser/' + id)
+        axios.get(`${BASE_URL}/getUser/` + id)
             .then(result => {
                 console.log(result)
                 setName(result.data.name)
@@ -26,10 +28,10 @@ const UpdateUsers = () => {
 
     const Update = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3000/updateUser/" + id, { name, age, email })
+        axios.put(`${BASE_URL}/updateUser/` + id, { name, age, email })
             .then(result => {
                 console.log(result)
-
+                toast.success("user has been updated")
                 navigate('/')
             })
             .catch(err => console.log(err))

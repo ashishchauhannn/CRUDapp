@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { BASE_URL } from '../main';
 import './CSS/CreateUser.css';
 const CreateUser = () => {
 
@@ -14,11 +16,12 @@ const CreateUser = () => {
     // handling
     const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3000/createUser", { name, age, email })
+        axios.post(`${BASE_URL}/createUser`, { name, age, email })
             .then(result => {
                 console.log(result)
-                toast('User Created Successfully!');
+                toast.success("user created successfully!")
                 navigate('/')
+
             })
             .catch(err => console.log(err))
 
