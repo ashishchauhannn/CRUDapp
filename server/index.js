@@ -7,11 +7,8 @@ const UserModel = require('./models/Users');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
-const corsOption={
-    origin:'https://vercel.com/ashishchauhannns-projects/crudappfront',
-    credentials:true
-};
-app.use(cors(corsOption)); 
+
+app.use(cors());
 app.use(express.json())///
 
 app.get('/', (req, res) => {
