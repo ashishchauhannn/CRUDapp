@@ -8,15 +8,17 @@ import './CSS/CreateUser.css';
 const CreateUser = () => {
 
     // hooks 
-    const [name, setName] = useState()
-    const [age, setAge] = useState()
+    const [fname, setFname] = useState()
+    const [lname, setLname] = useState()
+    const [phone, setPhone] = useState()
     const [email, setEmail] = useState()
+    const [address, setAddress] = useState()
     //Navigations for pages...
     const navigate = useNavigate()
     // handling
     const Submit = (e) => {
         e.preventDefault();
-        axios.post(`${BASE_URL}/createUser`, { name, age, email })
+        axios.post(`${BASE_URL}/createUser`, { fname, lname, phone, email, address })
             .then(result => {
                 console.log(result)
                 toast.success("user created successfully!")
@@ -29,22 +31,31 @@ const CreateUser = () => {
     return (
         <div className="form-container">
             <h2>CREATE USER</h2>
+
             <form onSubmit={Submit}>
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">FirstName:</label>
                     <input type="text" id="name" name="name" required
-                        onChange={(e) => setName(e.target.value)} />
+                        onChange={(e) => setFname(e.target.value)} />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="age">Age:</label>
-                    <input type="number" id="age" name="age" required
-                        onChange={(e) => setAge(e.target.value)} />
+                    <label htmlFor="age">LastName:</label>
+                    <input type="text" id="age" name="age" required
+                        onChange={(e) => setLname(e.target.value)} />
                 </div>
                 <div className="form-group">
+                    <label htmlFor="email">Phone:</label>
+                    <input type="text" id="email" name="email" required
+                        onChange={(e) => setPhone(e.target.value)} />
+                </div>  <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input type="email" id="email" name="email" required
                         onChange={(e) => setEmail(e.target.value)} />
+                </div>  <div className="form-group">
+                    <label htmlFor="email">Address:</label>
+                    <input type="text" id="email" name="email" required
+                        onChange={(e) => setAddress(e.target.value)} />
                 </div>
                 <button type="submit" className="submit-btn">Submit</button>
             </form>

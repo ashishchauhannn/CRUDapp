@@ -28,9 +28,11 @@ app.put('/updateUser/:id', (req, res) => {
     const id = req.params.id;
     UserModel.findByIdAndUpdate({ _id: id },
         {
-            name: req.body.name,
-            age: req.body.age,
-            email: req.body.email
+            fname: req.body.fname,
+            lname: req.body.lname,
+            phone: req.body.phone,
+            email: req.body.email,
+            address: req.body.address
         })
         .then(users => res.json(users))
         .catch(err => res.json(err))

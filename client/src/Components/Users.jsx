@@ -30,10 +30,12 @@ const Users = () => {
             <table className="form-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
+                        <th>FullName</th>
+                        <th>LastName</th>
+                        <th>Phone</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Address</th>
+                        <th>Action Buttons</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +45,11 @@ const Users = () => {
                         users.map((user) => {
                             return (
                                 <tr>
-                                    <td>{user.name}</td>
-                                    <td>{user.age}</td>
+                                    <td>{user.fname}</td>
+                                    <td>{user.lname}</td>
+                                    <td>{user.phone}</td>
                                     <td>{user.email}</td>
+                                    <td>{user.address}</td>
                                     <td> <Link to={`/update/${user._id}`}> <button className="submit-btn">Update</button></Link>
                                         <button className="del-btn" onClick={(e) => handleDelete(user._id)}>Delete</button>
                                     </td>
